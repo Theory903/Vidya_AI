@@ -1,0 +1,12 @@
+Discord-py
+openai
+python-dotenv
+requests
+langchain
+streamlit
+telegram
+datetime
+shutil
+dotenv 
+pandas
+sklearn
