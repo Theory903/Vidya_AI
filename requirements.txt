@@ -13,5 +13,5 @@ gTTS
 Discord-py
 requests
 datetime
-shutil
+pytest-shutil
 db-sqlite3
