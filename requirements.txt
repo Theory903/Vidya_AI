@@ -8,3 +8,4 @@ numpy
 st_pages
 scikit-learn
 streamlit_option_menu
+python-dotenv
