@@ -1,0 +1,11 @@
+streamlit
+spacy
+langchain
+openai
+pandas
+pygwalker
+numpy
+st_pages
+sklearn
+
+
