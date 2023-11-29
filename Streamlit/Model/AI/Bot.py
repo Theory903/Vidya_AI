@@ -25,22 +25,11 @@ user_info = {}
 def say(text):
     # Split the text into words and count them
     word_count = len(text.split())
-    try:
-        if word_count <= 100:
-            print("VidyaAI: "+text)
-            mytext = text
-            language = 'en'
-            myobj = gTTS(text=mytext, lang=language, slow=False) 
-            myobj.save("welcome.mp3")
-            
-    except:
-        pass
-        # if word_count <= 100:
-        #     print("VidyaAI: "+text)
-        #     os.system(f'say "{text}"')
-        # else:
-        #     print("VidyaAI: "+text)
-            
+    if word_count <= 100:
+        os.system(f'say "{text}"')
+    else:
+        print("VidyaAI: "+text)
+        
 
 # Define a dictionary of roles and their associated keywords
 def categorize_role(prompt):
@@ -117,5 +106,6 @@ def AI(prompt):
         return response
 
     response = Chat(role, temperature, top_p, prompt=prompt)
-    say(response)
     return response
+
+    

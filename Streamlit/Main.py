@@ -1,6 +1,5 @@
 import streamlit as st
 from Model.AI.Bot import AI,say
-from langchain.agents import create_csv_agent
 from langchain.llms import OpenAI
 from dotenv import load_dotenv
 import os
@@ -10,22 +9,22 @@ load_dotenv()
 st.markdown(f"<style>.st-emotion-cache-ffhzg2 {{background-image: url('https://images.pexels.com/photos/2362009/pexels-photo-2362009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')}}</style>", unsafe_allow_html=True)
 show_pages(
     [
-        Page("Main.py", "Home", "🏠"),
-        Page("app.py", "Ask PDF","📑"),
-        Page("CSV.py", "Ask CSV","📈"),
-        Page("Visual.py", "Visualize","📈"),
-        Page("Code.py", "Code Analysis","👨‍💻"),
-        #Page("interview.py", "Interview","💬"),
-        #Page("yt.py", "YOUTUBE SUMMERIZER")
+        Page("Streamlit/🏠homepage.py", "HOME PAGE","🏠"),
+        Page("Streamlit/Main.py", "PlayGround", "🤖"),
+        Page("Streamlit/app.py", "Ask PDF","📑"),
+        Page("Streamlit/CSV.py", "Ask CSV","📉"),
+        Page("Streamlit/Visual.py", "Visualize","📈"),
+        Page("Streamlit/yt.py", "Chat with YOUTUBE","▶️"),
+        Page("Streamlit/Code.py", "Code Analysis","👨‍💻"),
+        Page("Streamlit/interview.py", "Interview","💬")
+        
     ]
 )
-
-st.title("💬 Chatbot") 
 # Define initial messages if not already in session state
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 def main(prompt):
-    if prompt.lower=="":
+    if prompt==" ":
         say("Write Something Valid...")
     else:
         return AI(prompt)
@@ -43,4 +42,4 @@ if prompt := st.chat_input():
             # Add the bot's response to the chat history
             st.session_state.messages.append({"role": "assistant", "content": bot_response})
             st.chat_message("assistant").write(bot_response)
-            st.audio("welcome.mp3")
+            say(bot_response)

@@ -4,7 +4,7 @@ import spacy
 import openai
 from dotenv import load_dotenv
 from Model.AI.Role import kwords
-from gtts import gTTS 
+# from gtts import gTTS 
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 # TO INITIATE (.env) FILE
@@ -25,21 +25,11 @@ user_info = {}
 def say(text):
     # Split the text into words and count them
     word_count = len(text.split())
-    try:
-        if word_count <= 100:
-            print("VidyaAI: "+text)
-            mytext = text
-            language = 'en'
-            myobj = gTTS(text=mytext, lang=language, slow=False) 
-            myobj.save("welcome.mp3")
-            
-    except:
-        pass
-        # if word_count <= 100:
-        #     print("VidyaAI: "+text)
-        #     os.system(f'say "{text}"')
-        # else:
-        #     print("VidyaAI: "+text)
+    if word_count <= 100:
+        print("VidyaAI: "+text)
+        os.system(f'say "{text}"')
+    else:
+        print("VidyaAI: "+text)
             
 
 # Define a dictionary of roles and their associated keywords

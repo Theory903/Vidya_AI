@@ -33,3 +33,4 @@ def organize_files_by_extension(source_dir):
             if not os.path.exists(target_file):
                 shutil.move(source_file, target_file)
                 print(f"Moved '{filename}' to '{file_extension}' directory")
+

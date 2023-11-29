@@ -29,11 +29,8 @@ memory = ConversationBufferMemory(
 
 
 
-
-st.title("YOUTUBE SUMMERIZER")
+st.title("Chat with Youtube")
 st.markdown(f"<style>.st-emotion-cache-1wrcr25  {{background-image: url('https://images.pexels.com/photos/1787044/pexels-photo-1787044.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');background-size: cover; }}</style>", unsafe_allow_html=True)
-
-
 
 path = st.sidebar.text_input("Please Enter URL")
 #$st.buton("view")
@@ -50,12 +47,12 @@ if path :
     
     
     c_splitter = CharacterTextSplitter(
-      chunk_size = 1000,
-      chunk_overlap = 200,
+      chunk_size = 5000,
+      chunk_overlap = 700,
       separator ="\n" ,
       length_function= len)
     docs = c_splitter.split_documents(script)
-    embedding = OpenAIEmbeddings(openai_api_key="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")
+    embedding = OpenAIEmbeddings(openai_api_key="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")
     vectordb = Chroma.from_documents(
         documents= docs,
         embedding=embedding,
@@ -64,7 +61,7 @@ if path :
         
         
         question = query
-        llm_chat = ChatOpenAI(openai_api_key="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", openai_organization="org-JVzRB41h7wqZNEbW4DiJj4kC",model_name="gpt-3.5-turbo",temperature=0)
+        llm_chat = ChatOpenAI(openai_api_key="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", openai_organization="org-JVzRB41h7wqZNEbW4DiJj4kC",model_name="gpt-3.5-turbo",temperature=0)
         retriever=vectordb.as_retriever()
         qa = ConversationalRetrievalChain.from_llm(
             llm_chat,
@@ -88,7 +85,7 @@ if path :
     container = st.container()
     
     with container:
-        st.write("This is inside the container")
+        #st.write("This is inside the container")
         with st.form(key = "my_form", clear_on_submit=True):
             user_input = st.text_input("Query:", placeholder = "talk with me", key = "input")
             submit_button = st.form_submit_button(label = "CHAT")
@@ -108,11 +105,3 @@ if path :
                 
                 with st.chat_message(st.session_state["generated"][i], avatar = "🤖"):
                     st.write(st.session_state["generated"][i])
-    
-    
-    
-    
-    
-
-
-

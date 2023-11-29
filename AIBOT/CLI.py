@@ -1,7 +1,6 @@
 from Model.AI.Bot import AI 
 import os
 import datetime
-from mpyg321.MPyg123Player import MPyg123Player
 # Define the folder to save chat history files
 chat_history_folder = 'ChatHistory'
 
@@ -19,6 +18,4 @@ while True:
         break
     else:
         AI(prompt)
-        player = MPyg123Player()
-        player.play_song("welcome.mp3")
         print()
