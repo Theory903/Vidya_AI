@@ -6,5 +6,5 @@ pandas
 pygwalker
 numpy
 st_pages
-sklearn
+scikit-learn
 streamlit_option_menu
