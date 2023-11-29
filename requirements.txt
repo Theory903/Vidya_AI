@@ -1,6 +1,6 @@
 streamlit
 langchain
-openai
+openai==0.28
 pandas
 pygwalker
 numpy
