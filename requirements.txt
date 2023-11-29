@@ -9,3 +9,9 @@ st_pages
 scikit-learn
 streamlit_option_menu
 python-dotenv
+gTTS
+Discord-py
+requests
+datetime
+shutil
+db-sqlite3
